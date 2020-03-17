@@ -280,6 +280,7 @@ body {
 .nav-container .home-menu .pure-menu-list .pure-menu-link {
   padding: 4px 15px;
   color: inherit;
+  font-weight: 400;
 }
 .nav-container .home-menu .pure-menu-list .pure-menu-link:after {
   content: ' ';
@@ -288,7 +289,7 @@ body {
   background-color: #fff;
 }
 .nav-container .home-menu .pure-menu-list .pure-menu-item.actived {
-  color: #2196F3;
+  color: #efa51b;
 }
 .slash {
   color: #999;
