@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>less压缩编译css</title>
+      <link href="/2020/03/18/other/less/"/>
+      <url>/2020/03/18/other/less/</url>
+      
+        <content type="html"><![CDATA[<p>使用npm包管理工具安装Less编译器</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less -g</span><br></pre></td></tr></table></figure><p>//下面命令用于安装css压缩插件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-plugin-clean-css -g</span><br></pre></td></tr></table></figure><p>//安装完成后就可以使用lessc的命令了</p><p>Less编译器用法：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc bootstrap.less bootstrap.css</span><br></pre></td></tr></table></figure><p>//下面命令启用css压缩插件，生成压缩后的css文件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc styles.less styles.min.css -clean-css</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 压缩 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> js压缩 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>使用uglifyjs压缩JS</title>
       <link href="/2020/03/18/other/uglifyjs/"/>
       <url>/2020/03/18/other/uglifyjs/</url>
