@@ -4,11 +4,250 @@
   
     
     <entry>
+      <title>window.print简单使用</title>
+      <link href="/2020/03/19/other/window.print/"/>
+      <url>/2020/03/19/other/window.print/</url>
+      
+        <content type="html"><![CDATA[<h3 id="window-print"><a href="#window-print" class="headerlink" title="window.print()"></a>window.print()</h3><p>方法用于打印当前窗口的内容。<br>window.print()  实际上，是浏览器打印功能菜单的一种程序调用。与点击打印功能菜单一样，<br>但是这种方式最致命的缺点是不能设置打印参数，比如纸型，页边距，选择打印机等等。</p><h4 id="一：打印前和打印后的事件onbeforeprint、onafterprint"><a href="#一：打印前和打印后的事件onbeforeprint、onafterprint" class="headerlink" title="一：打印前和打印后的事件onbeforeprint、onafterprint"></a>一：打印前和打印后的事件onbeforeprint、onafterprint</h4><p>打印前和打印后的事件onbeforeprint、onafterprint。可以在打印前的时候重新编辑一些格式，专门送去打印，打印后又处理回来。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">window</span>.<span class="title">onbeforeprint</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">   <span class="comment">//将一些不需要打印的隐藏  </span></span><br><span class="line">&#125;  </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">window</span>.<span class="title">onafterprint</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">   <span class="comment">//放开隐藏的元素  </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>通过这两个方法，就可以实现页面的部分打印。上述方法只有火狐和ie支持。</p><h4 id="二：利用media控制css"><a href="#二：利用media控制css" class="headerlink" title="二：利用media控制css"></a>二：利用media控制css</h4><p>调用window.print()时，可以利用css来控制页面中的东西是否显示。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="css"><span class="keyword">@media</span> print&#123;  </span></span><br><span class="line"><span class="css">　　<span class="selector-class">.noprint</span>&#123;  </span></span><br><span class="line"><span class="css">   　　<span class="selector-tag">display</span><span class="selector-pseudo">:none</span>  </span></span><br><span class="line">　　&#125;  </span><br><span class="line">&#125;  </span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line">...</span><br><span class="line"><span class="tag">&lt;<span class="name">table</span> <span class="attr">width</span>=<span class="string">"757"</span> <span class="attr">height</span>=<span class="string">"174"</span> <span class="attr">border</span>=<span class="string">"0"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">cellpadding</span>=<span class="string">"0"</span> <span class="attr">cellspacing</span>=<span class="string">"0"</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;<span class="name">tr</span> <span class="attr">class</span>=<span class="string">"noprint"</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">td</span> <span class="attr">height</span>=<span class="string">"133"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">valign</span>=<span class="string">"top"</span>&gt;</span>  </span><br><span class="line">   <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"Images/top.jpg"</span> <span class="attr">width</span>=<span class="string">"757"</span> <span class="attr">height</span>=<span class="string">"133"</span>&gt;</span><span class="tag">&lt;/<span class="name">td</span>&gt;</span>  </span><br><span class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="三、把需要打印的内容显示到新窗口中"><a href="#三、把需要打印的内容显示到新窗口中" class="headerlink" title="三、把需要打印的内容显示到新窗口中"></a>三、把需要打印的内容显示到新窗口中</h4><p>在新窗口中调用window.print()方法，然后自动关闭新窗口。如果要打印的页面排版和原web页面相差很大，采用此种方法。</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge,chrome=1"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>打印测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">content</span>=<span class="string">""</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">""</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">""</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="css">    <span class="selector-id">#content</span> <span class="selector-tag">div</span>&#123;<span class="attribute">width</span>: <span class="number">100px</span>;<span class="attribute">height</span>: <span class="number">100px</span>;<span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#c50000</span>;&#125;  </span></span><br><span class="line"><span class="css">    <span class="keyword">@page</span> &#123; <span class="attribute">margin</span>: <span class="number">0</span>; &#125;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>aaa<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'content'</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span>bbb<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span>ccc<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"打印"</span> <span class="attr">id</span>=<span class="string">"print"</span> /&gt;</span>  </span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> print = <span class="built_in">document</span>.getElementById(<span class="string">"print"</span>);  </span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> printData = <span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).innerHTML;</span></span><br><span class="line"><span class="actionscript">    print.onclick=<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;  </span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oPop = <span class="built_in">window</span>.open(<span class="string">''</span>,<span class="string">'oPop'</span>);  </span></span><br><span class="line"><span class="handlebars"><span class="xml">        var headstr = `<span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">style</span>&gt;</span>  </span></span></span><br><span class="line">                @page &#123;</span><br><span class="line">                  size: auto;</span><br><span class="line">                  margin: 0mm;</span><br><span class="line">                &#125;</span><br><span class="line"><span class="handlebars"><span class="xml">            <span class="tag">&lt;/<span class="name">style</span>&gt;</span> <span class="tag">&lt;/<span class="name">head</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span>`; </span></span></span><br><span class="line"><span class="actionscript">        <span class="keyword">var</span> footstr = <span class="string">"&lt;/body&gt;&lt;/html&gt;"</span>;  </span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> str = headstr+printData+footstr;  </span></span><br><span class="line">        oPop.document.write(str);  </span><br><span class="line">        oPop.print();  </span><br><span class="line">        oPop.close();  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure><p>去掉页眉页脚</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@page</span> &#123; <span class="attribute">margin</span>: <span class="number">0</span>; &#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> print() </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> print() </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>js实现复制文本内容到剪切板</title>
+      <link href="/2020/03/19/other/js%E5%AE%9E%E7%8E%B0%E5%A4%8D%E5%88%B6%E5%86%85%E5%AE%B9%E5%88%B0%E5%89%AA%E5%88%87%E6%9D%BF/"/>
+      <url>/2020/03/19/other/js%E5%AE%9E%E7%8E%B0%E5%A4%8D%E5%88%B6%E5%86%85%E5%AE%B9%E5%88%B0%E5%89%AA%E5%88%87%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<h3 id="js实现复制文本内容到剪切板"><a href="#js实现复制文本内容到剪切板" class="headerlink" title="js实现复制文本内容到剪切板"></a>js实现复制文本内容到剪切板</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"content"</span>&gt;</span>这是一段内容<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span></span><br><span class="line"><span class="actionscript">   <span class="function"><span class="keyword">function</span> <span class="title">copyContent</span><span class="params">()</span></span></span></span><br><span class="line">    &#123;</span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> Url2=<span class="built_in">document</span>.getElementById(<span class="string">"content"</span>).innerText;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> oInput = <span class="built_in">document</span>.createElement(<span class="string">'input'</span>);</span></span><br><span class="line">        oInput.value = Url2;</span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.body.appendChild(oInput);</span></span><br><span class="line"><span class="actionscript">        oInput.select(); <span class="comment">// 选择对象</span></span></span><br><span class="line"><span class="javascript">        <span class="built_in">document</span>.execCommand(<span class="string">"Copy"</span>); <span class="comment">// 执行浏览器复制命令</span></span></span><br><span class="line"><span class="actionscript">        oInput.className = <span class="string">'oInput'</span>;</span></span><br><span class="line"><span class="actionscript">        oInput.style.display=<span class="string">'none'</span>;</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h3 id="坑："><a href="#坑：" class="headerlink" title="坑："></a>坑：</h3><ol><li>input框不能有disabled属性</li><li>input的width || height 不能为0；</li><li>input框不能有hidden属性</li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 剪切板 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 复制 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>获取当前日期0点及23点59的时间戳</title>
+      <link href="/2020/03/19/other/0%E7%82%B9%E5%92%8C23%E7%82%B9/"/>
+      <url>/2020/03/19/other/0%E7%82%B9%E5%92%8C23%E7%82%B9/</url>
+      
+        <content type="html"><![CDATA[<h3 id="获取今天0点时间戳"><a href="#获取今天0点时间戳" class="headerlink" title="获取今天0点时间戳"></a>获取今天0点时间戳</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleDateString()).getTime());       </span><br><span class="line"><span class="comment">//如果不是当天换成你想获取0点的时间即可。</span></span><br><span class="line"><span class="built_in">console</span>.log(start);</span><br></pre></td></tr></table></figure><h3 id="获取今天23-59-59点时间戳"><a href="#获取今天23-59-59点时间戳" class="headerlink" title="获取今天23:59:59点时间戳"></a>获取今天23:59:59点时间戳</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> start = <span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="keyword">new</span> <span class="built_in">Date</span>().toLocaleDateString()).getTime()+<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*<span class="number">1000</span><span class="number">-1</span>);</span><br><span class="line"><span class="built_in">console</span>.log(start);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 时间 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 零点 </tag>
+            
+            <tag> 23点59 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Mac和Windows设置环境变量</title>
+      <link href="/2020/03/19/other/Mac%E5%92%8CWindows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/"/>
+      <url>/2020/03/19/other/Mac%E5%92%8CWindows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/</url>
+      
+        <content type="html"><![CDATA[<p>Mac和Windows环境变量在package.json中的设置不太一样。</p><h3 id="Mac"><a href="#Mac" class="headerlink" title="Mac"></a>Mac</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"PORT=3060 NODE_ENV=test nodemon --watch server/routes ./server/bin/www"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p>&amp;前不要加空格</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"dev"</span>: <span class="string">"set PORT=3060&amp; set NODE_ENV=testa&amp;&amp;  nodemon --watch server/routes ./server/bin/www"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 环境变量 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 环境变量 </tag>
+            
+            <tag> Mac </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Windows和Mac端口占用</title>
+      <link href="/2020/03/19/other/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/"/>
+      <url>/2020/03/19/other/%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="Windows查看端口占用"><a href="#Windows查看端口占用" class="headerlink" title="Windows查看端口占用"></a>Windows查看端口占用</h3><h4 id="一、查看所有进程占用的端口"><a href="#一、查看所有进程占用的端口" class="headerlink" title="一、查看所有进程占用的端口"></a>一、查看所有进程占用的端口</h4><p>在开始-运行-cmd,输入：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat –ano  //可以查看所有进程</span><br></pre></td></tr></table></figure><h4 id="二、查看占用指定端口的程序"><a href="#二、查看占用指定端口的程序" class="headerlink" title="二、查看占用指定端口的程序"></a>二、查看占用指定端口的程序</h4><p>经常会遇到端口被占用的情况，我们想知道是哪个程序或进程占用了端口，<br>可以用该命令 <code>netstat –ano|findstr [指定端口号]</code><br>如：查询占用了8080端口的进程：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|findstr <span class="string">"8080"</span></span><br></pre></td></tr></table></figure><h4 id="三、通过任务管理器杀死相关的进程"><a href="#三、通过任务管理器杀死相关的进程" class="headerlink" title="三、通过任务管理器杀死相关的进程"></a>三、通过任务管理器杀死相关的进程</h4><ol><li><p>使用任务管理器杀死进程<br>打开任务管理器-&gt;查看-&gt;选择列-&gt;然后勾选PID选项，回到任务管理器上可以查看到对应的pid，然后结束进程<br>当然上面的方法有时候不好用，就是任务管理器中的进程比较多的时候，然后去找到对应的进程是很麻烦的，所以还有一种方法可以杀死进程的</p></li><li><p>使用命令杀死进程<br>首先找到进程号对应的进程名称: <code>tasklist|findstr [进程号]</code>。</p> <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist|findstr 3112</span><br></pre></td></tr></table></figure><p> 然后根据进程名称杀死进程: <code>taskkill /f /t /im [进程名称]</code>。</p> <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /t /im /javaw.exe</span><br></pre></td></tr></table></figure></li></ol><h3 id="Mac端口占用"><a href="#Mac端口占用" class="headerlink" title="Mac端口占用"></a>Mac端口占用</h3><p>终端命令</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :9000</span><br></pre></td></tr></table></figure><p>会显示出PID: 716</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COMMAND   PID    USER   FD      TYPE             DEVICE                      SIZE/OFF      NODE       NAME</span><br><span class="line">Java      716     a     313u   IPv6              0x1111111111111             0t0          TCP        *:cslistener (LISTEN)</span><br></pre></td></tr></table></figure><p>然后根据PID杀进程：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">kill</span> -9 716</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 端口 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Windows端口占用 </tag>
+            
+            <tag> Mac端口占用 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>ajax请求HTTPS报错</title>
+      <link href="/2020/03/19/https/ajax%E8%AF%B7%E6%B1%82HTTPS%E6%8A%A5%E9%94%99/"/>
+      <url>/2020/03/19/https/ajax%E8%AF%B7%E6%B1%82HTTPS%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p>在使用ajax请求https接口过程中<br>在浏览器中报错：<br><strong><em>Failed to load resource: net::ERR_CERT_AUTHORITY_INVALID</em></strong></p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$.ajax(<span class="string">'https://xxxxx'</span>, &#123;</span><br><span class="line">    data: &#123;&#125;,</span><br><span class="line">    dataType: <span class="string">'json'</span>, <span class="comment">//服务器返回json格式数据</span></span><br><span class="line">    type: <span class="string">'post'</span>, <span class="comment">//HTTP请求类型</span></span><br><span class="line">    timeout: <span class="number">10000</span>, <span class="comment">//超时时间设置为10秒；</span></span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'Content-Type'</span>: <span class="string">'application/json'</span></span><br><span class="line">    &#125;,</span><br><span class="line">    success: <span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;,  </span><br><span class="line">    error: <span class="function"><span class="keyword">function</span> (<span class="params">xhr, type, errorThrown</span>) </span>&#123;  </span><br><span class="line"></span><br><span class="line">    &#125;  </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure><p>具体原因是接口服务器端设置了ssl证书，是自己生成的不安全的证书。<br>需要在浏览器地址栏访问一下这个接口地址，加入到安全例外就可以了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTTPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTPS </tag>
+            
+            <tag> ajax </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PhantomJS无法获取https网址的内容</title>
+      <link href="/2020/03/19/https/PhantomJS/"/>
+      <url>/2020/03/19/https/PhantomJS/</url>
+      
+        <content type="html"><![CDATA[<p>在使用PhantomJS的js执行环境，引入的https文件，加载报错。</p><p>具体原因是因为ssl安全不过关，需要设置phantomArgs，忽略ssl证书。</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"phantomArgs"</span>: [<span class="string">"--ignore-ssl-errors=yes"</span>],</span><br></pre></td></tr></table></figure><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> phantomPath = req.app.get(<span class="string">"phantom_home"</span>);</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">    <span class="string">"phantomPath"</span>:phantomPath,</span><br><span class="line">    <span class="string">"phantomArgs"</span>: [<span class="string">"--ignore-ssl-errors=yes"</span>],</span><br><span class="line">    <span class="string">"format"</span>:<span class="string">"A4"</span>,</span><br><span class="line">    <span class="string">"orientation"</span>:<span class="string">"landscape"</span>,</span><br><span class="line">    <span class="string">"width"</span>:<span class="string">"793"</span>,</span><br><span class="line">    <span class="string">"height"</span>:pageHeight,</span><br><span class="line">    border: &#123;</span><br><span class="line">        top: <span class="string">'16mm'</span>,</span><br><span class="line">        left: <span class="number">0</span>,</span><br><span class="line">        right: <span class="number">0</span>,</span><br><span class="line">        bottom: <span class="string">'16mm'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTTPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTPS </tag>
+            
+            <tag> nodejs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>node请求HTTPS报错</title>
+      <link href="/2020/03/19/https/node%E8%AF%B7%E6%B1%82HTTPS%E6%8A%A5%E9%94%99/"/>
+      <url>/2020/03/19/https/node%E8%AF%B7%E6%B1%82HTTPS%E6%8A%A5%E9%94%99/</url>
+      
+        <content type="html"><![CDATA[<p>nodejs请求HTTPS报错：<strong><em>UNABLE_TO_VERIFY_LEAF_SIGNATURE</em></strong>的解<br>出现这个错误是因为对方网站的证书不正确导致的。<br>在请求的时候指定忽略证书验证，即<strong><em>options</em></strong>的<strong><em>rejectUnauthorized</em></strong>参数设置为false</p><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">'https'</span>); </span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    protocol: <span class="string">"https:"</span>,</span><br><span class="line">    hostname: _baseURL[<span class="number">0</span>],</span><br><span class="line">    port: <span class="number">443</span>,,</span><br><span class="line">    path: url,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    rejectUnauthorized: process.NODE_ENV==<span class="string">"online"</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: req.headers[<span class="string">'user-agent'</span>],</span><br><span class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'Cookie'</span>:req.headers.cookie||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"TraceID"</span>:req.headers.traceid||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"x-ht-real-ip"</span>:req.headers[<span class="string">"x-real-ip"</span>]||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"EagleEye-SessionID"</span>:req.headers[<span class="string">"EagleEye-SessionID"</span>]||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"EagleEye-TraceID"</span>:req.headers[<span class="string">"EagleEye-TraceID"</span>]||<span class="string">''</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = https.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"statusCode: "</span>, res.statusCode); </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"headers: "</span>, res.headers); </span><br><span class="line"></span><br><span class="line">  res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; </span><br><span class="line">    process.stdout.write(d); </span><br><span class="line">  &#125;); </span><br><span class="line">&#125;); </span><br><span class="line">req.end(); </span><br><span class="line"></span><br><span class="line">req.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.error(e); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> HTTPS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> HTTPS </tag>
+            
+            <tag> nodejs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>koa生成器</title>
+      <link href="/2020/03/19/koa/koa%E7%94%9F%E6%88%90%E5%99%A8/"/>
+      <url>/2020/03/19/koa/koa%E7%94%9F%E6%88%90%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="一-安装"><a href="#一-安装" class="headerlink" title="一.安装"></a>一.安装</h3><p>全局安装(支持koa1.2和koa2)</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install koa-generator -g</span><br></pre></td></tr></table></figure><h4 id="koa1生成test项目并下载依赖"><a href="#koa1生成test项目并下载依赖" class="headerlink" title="koa1生成test项目并下载依赖"></a>koa1生成test项目并下载依赖</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">koa <span class="built_in">test</span></span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">test</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h4 id="koa2生成test项目并下载依赖"><a href="#koa2生成test项目并下载依赖" class="headerlink" title="koa2生成test项目并下载依赖"></a>koa2生成test项目并下载依赖</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">koa2 <span class="built_in">test</span></span><br><span class="line"><span class="built_in">cd</span> <span class="built_in">test</span></span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><h3 id="二-运行"><a href="#二-运行" class="headerlink" title="二.运行"></a>二.运行</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure><h3 id="三-参数"><a href="#三-参数" class="headerlink" title="三.参数"></a>三.参数</h3><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-h --help帮助</span><br><span class="line">-V --version 版本号</span><br><span class="line">-e --ejs 添加ejs模板引擎支持(默认是jade)</span><br><span class="line">--hbs 添加hbs模板引擎支持(默认是hbs) -H --hogan 添加hogan.js支持</span><br><span class="line">-c --css <span class="xml"><span class="tag">&lt;<span class="name">engine</span>&gt;</span></span>添加css样式 支持 less sass styus css(默认是css)</span><br><span class="line">--git 添加 .gitignore</span><br><span class="line">-f --force force on non-empty directory</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> koa </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> koa </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>less压缩编译css</title>
       <link href="/2020/03/18/other/less/"/>
       <url>/2020/03/18/other/less/</url>
       
-        <content type="html"><![CDATA[<p>使用npm包管理工具安装Less编译器</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less -g</span><br></pre></td></tr></table></figure><p>//下面命令用于安装css压缩插件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-plugin-clean-css -g</span><br></pre></td></tr></table></figure><p>//安装完成后就可以使用lessc的命令了</p><p>Less编译器用法：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc bootstrap.less bootstrap.css</span><br></pre></td></tr></table></figure><p>//下面命令启用css压缩插件，生成压缩后的css文件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc styles.less styles.min.css -clean-css</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<p>使用npm包管理工具安装Less编译器</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less -g</span><br></pre></td></tr></table></figure><p>//下面命令用于安装css压缩插件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-plugin-clean-css -g</span><br></pre></td></tr></table></figure><p>安装完成后就可以使用lessc的命令了</p><p>Less编译器用法：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc bootstrap.less bootstrap.css</span><br></pre></td></tr></table></figure><p>下面命令启用css压缩插件，生成压缩后的css文件</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc styles.less styles.min.css -clean-css</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>

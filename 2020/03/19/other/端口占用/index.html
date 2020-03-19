@@ -11,15 +11,15 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="js压缩," />
+    <meta name="keywords" content="Windows端口占用,Mac端口占用," />
   
 
   
-    <meta name="description" content="less压缩编译css" />
+    <meta name="description" content="Windows和Mac端口占用" />
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>less压缩编译css [ 小宽人的博客 ]</title>
+  <title>Windows和Mac端口占用 [ 小宽人的博客 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -76,19 +76,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        less压缩编译css
+        Windows和Mac端口占用
       </h1>
       <span>
         
-        <time class="time" datetime="2020-03-18T10:21:50.000Z">
-        2020-03-18
+        <time class="time" datetime="2020-03-19T07:26:42.000Z">
+        2020-03-19
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%8E%8B%E7%BC%A9/" rel="tag">js压缩</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mac%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/" rel="tag">Mac端口占用</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Windows%E7%AB%AF%E5%8F%A3%E5%8D%A0%E7%94%A8/" rel="tag">Windows端口占用</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -96,22 +96,35 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content" style="min-height: 300px;">
-      <p>使用npm包管理工具安装Less编译器</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less -g</span><br></pre></td></tr></table></figure>
-<p>//下面命令用于安装css压缩插件</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-plugin-clean-css -g</span><br></pre></td></tr></table></figure>
-<p>安装完成后就可以使用lessc的命令了</p>
-<p>Less编译器用法：</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc bootstrap.less bootstrap.css</span><br></pre></td></tr></table></figure>
+      <h3 id="Windows查看端口占用"><a href="#Windows查看端口占用" class="headerlink" title="Windows查看端口占用"></a>Windows查看端口占用</h3><h4 id="一、查看所有进程占用的端口"><a href="#一、查看所有进程占用的端口" class="headerlink" title="一、查看所有进程占用的端口"></a>一、查看所有进程占用的端口</h4><p>在开始-运行-cmd,输入：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat –ano  //可以查看所有进程</span><br></pre></td></tr></table></figure>
+<h4 id="二、查看占用指定端口的程序"><a href="#二、查看占用指定端口的程序" class="headerlink" title="二、查看占用指定端口的程序"></a>二、查看占用指定端口的程序</h4><p>经常会遇到端口被占用的情况，我们想知道是哪个程序或进程占用了端口，<br>可以用该命令 <code>netstat –ano|findstr [指定端口号]</code><br>如：查询占用了8080端口的进程：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -ano|findstr <span class="string">"8080"</span></span><br></pre></td></tr></table></figure>
 
-<p>下面命令启用css压缩插件，生成压缩后的css文件</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc styles.less styles.min.css -clean-css</span><br></pre></td></tr></table></figure>
+<h4 id="三、通过任务管理器杀死相关的进程"><a href="#三、通过任务管理器杀死相关的进程" class="headerlink" title="三、通过任务管理器杀死相关的进程"></a>三、通过任务管理器杀死相关的进程</h4><ol>
+<li><p>使用任务管理器杀死进程<br>打开任务管理器-&gt;查看-&gt;选择列-&gt;然后勾选PID选项，回到任务管理器上可以查看到对应的pid，然后结束进程<br>当然上面的方法有时候不好用，就是任务管理器中的进程比较多的时候，然后去找到对应的进程是很麻烦的，所以还有一种方法可以杀死进程的</p>
+</li>
+<li><p>使用命令杀死进程<br>首先找到进程号对应的进程名称: <code>tasklist|findstr [进程号]</code>。</p>
+ <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tasklist|findstr 3112</span><br></pre></td></tr></table></figure>
+
+<p> 然后根据进程名称杀死进程: <code>taskkill /f /t /im [进程名称]</code>。</p>
+ <figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">taskkill /f /t /im /javaw.exe</span><br></pre></td></tr></table></figure>
 
 
+
+</li>
+</ol>
+<h3 id="Mac端口占用"><a href="#Mac端口占用" class="headerlink" title="Mac端口占用"></a>Mac端口占用</h3><p>终端命令</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo lsof -i :9000</span><br></pre></td></tr></table></figure>
+<p>会显示出PID: 716</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">COMMAND   PID    USER   FD      TYPE             DEVICE                      SIZE/OFF      NODE       NAME</span><br><span class="line">Java      716     a     313u   IPv6              0x1111111111111             0t0          TCP        *:cslistener (LISTEN)</span><br></pre></td></tr></table></figure>
+
+<p>然后根据PID杀进程：</p>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">kill</span> -9 716</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -119,6 +132,11 @@
   </article>
   <div class="toc-container">
     
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows查看端口占用"><span class="toc-text">Windows查看端口占用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一、查看所有进程占用的端口"><span class="toc-text">一、查看所有进程占用的端口</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二、查看占用指定端口的程序"><span class="toc-text">二、查看占用指定端口的程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#三、通过任务管理器杀死相关的进程"><span class="toc-text">三、通过任务管理器杀死相关的进程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mac端口占用"><span class="toc-text">Mac端口占用</span></a></li></ol>
+  </div>
+
 
   </div>
 </div>
@@ -139,16 +157,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/03/18/other/uglifyjs/" rel="next" title="使用uglifyjs压缩JS">
-          使用uglifyjs压缩JS
+          <a href="/2020/03/19/https/ajax%E8%AF%B7%E6%B1%82HTTPS%E6%8A%A5%E9%94%99/" rel="next" title="ajax请求HTTPS报错">
+          ajax请求HTTPS报错
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/03/19/koa/koa%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev" title="koa生成器">
-            koa生成器
+          <a href="/2020/03/19/other/Mac%E5%92%8CWindows%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" rel="prev" title="Mac和Windows设置环境变量">
+            Mac和Windows设置环境变量
           </a>
           <span>〉</span>
         

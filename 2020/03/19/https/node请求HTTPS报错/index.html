@@ -11,15 +11,15 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="js压缩," />
+    <meta name="keywords" content="HTTPS,nodejs," />
   
 
   
-    <meta name="description" content="less压缩编译css" />
+    <meta name="description" content="node请求HTTPS报错" />
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>less压缩编译css [ 小宽人的博客 ]</title>
+  <title>node请求HTTPS报错 [ 小宽人的博客 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -76,19 +76,19 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        less压缩编译css
+        node请求HTTPS报错
       </h1>
       <span>
         
-        <time class="time" datetime="2020-03-18T10:21:50.000Z">
-        2020-03-18
+        <time class="time" datetime="2020-03-19T06:35:24.000Z">
+        2020-03-19
       </time>
         
       </span>
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js%E5%8E%8B%E7%BC%A9/" rel="tag">js压缩</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/HTTPS/" rel="tag">HTTPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/nodejs/" rel="tag">nodejs</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -100,16 +100,8 @@
     </header>
 
     <div class="post-content" style="min-height: 300px;">
-      <p>使用npm包管理工具安装Less编译器</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less -g</span><br></pre></td></tr></table></figure>
-<p>//下面命令用于安装css压缩插件</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install less-plugin-clean-css -g</span><br></pre></td></tr></table></figure>
-<p>安装完成后就可以使用lessc的命令了</p>
-<p>Less编译器用法：</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc bootstrap.less bootstrap.css</span><br></pre></td></tr></table></figure>
-
-<p>下面命令启用css压缩插件，生成压缩后的css文件</p>
-<figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lessc styles.less styles.min.css -clean-css</span><br></pre></td></tr></table></figure>
+      <p>nodejs请求HTTPS报错：<strong><em>UNABLE_TO_VERIFY_LEAF_SIGNATURE</em></strong>的解<br>出现这个错误是因为对方网站的证书不正确导致的。<br>在请求的时候指定忽略证书验证，即<strong><em>options</em></strong>的<strong><em>rejectUnauthorized</em></strong>参数设置为false</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> https = <span class="built_in">require</span>(<span class="string">'https'</span>); </span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    protocol: <span class="string">"https:"</span>,</span><br><span class="line">    hostname: _baseURL[<span class="number">0</span>],</span><br><span class="line">    port: <span class="number">443</span>,,</span><br><span class="line">    path: url,</span><br><span class="line">    method: <span class="string">'post'</span>,</span><br><span class="line">    rejectUnauthorized: process.NODE_ENV==<span class="string">"online"</span>,</span><br><span class="line">    headers: &#123;</span><br><span class="line">        <span class="string">'User-Agent'</span>: req.headers[<span class="string">'user-agent'</span>],</span><br><span class="line">        <span class="string">'Content-Type'</span>:<span class="string">'application/json'</span>,</span><br><span class="line">        <span class="string">'Cookie'</span>:req.headers.cookie||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"TraceID"</span>:req.headers.traceid||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"x-ht-real-ip"</span>:req.headers[<span class="string">"x-real-ip"</span>]||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"EagleEye-SessionID"</span>:req.headers[<span class="string">"EagleEye-SessionID"</span>]||<span class="string">''</span>,</span><br><span class="line">        <span class="string">"EagleEye-TraceID"</span>:req.headers[<span class="string">"EagleEye-TraceID"</span>]||<span class="string">''</span>,</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> req = https.request(options, <span class="function"><span class="keyword">function</span>(<span class="params">res</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"statusCode: "</span>, res.statusCode); </span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">"headers: "</span>, res.headers); </span><br><span class="line"></span><br><span class="line">  res.on(<span class="string">'data'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; </span><br><span class="line">    process.stdout.write(d); </span><br><span class="line">  &#125;); </span><br><span class="line">&#125;); </span><br><span class="line">req.end(); </span><br><span class="line"></span><br><span class="line">req.on(<span class="string">'error'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123; </span><br><span class="line">  <span class="built_in">console</span>.error(e); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
 
 
@@ -139,16 +131,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/03/18/other/uglifyjs/" rel="next" title="使用uglifyjs压缩JS">
-          使用uglifyjs压缩JS
+          <a href="/2020/03/19/koa/koa%E7%94%9F%E6%88%90%E5%99%A8/" rel="next" title="koa生成器">
+          koa生成器
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/03/19/koa/koa%E7%94%9F%E6%88%90%E5%99%A8/" rel="prev" title="koa生成器">
-            koa生成器
+          <a href="/2020/03/19/https/PhantomJS/" rel="prev" title="PhantomJS无法获取https网址的内容">
+            PhantomJS无法获取https网址的内容
           </a>
           <span>〉</span>
         
