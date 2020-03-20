@@ -4,6 +4,131 @@
   
     
     <entry>
+      <title>vsCode的markdown环境配置</title>
+      <link href="/2020/03/20/other/markdown/"/>
+      <url>/2020/03/20/other/markdown/</url>
+      
+        <content type="html"><![CDATA[<h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>因为经常使用markdown写日志，又加上使用vsCode开发。<br>vsCode + markdown完美结合。</p><h3 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h3><p><img src="/2020/03/20/other/markdown/9.png" alt="9.png"></p><h3 id="markdown常用插件"><a href="#markdown常用插件" class="headerlink" title="markdown常用插件"></a>markdown常用插件</h3><p>在插件商店输入markdown搜索</p><h4 id="markdown-all-in-one"><a href="#markdown-all-in-one" class="headerlink" title="markdown all in one"></a>markdown all in one</h4><p><img src="/2020/03/20/other/markdown/1.png" alt="1.png"></p><h4 id="将原生markdown预览的黑色背景改为白色"><a href="#将原生markdown预览的黑色背景改为白色" class="headerlink" title="将原生markdown预览的黑色背景改为白色"></a>将原生markdown预览的黑色背景改为白色</h4><p><img src="/2020/03/20/other/markdown/2.png" alt="2.png"></p><h4 id="Github风格的预览"><a href="#Github风格的预览" class="headerlink" title="Github风格的预览"></a>Github风格的预览</h4><p><img src="/2020/03/20/other/markdown/3.png" alt="3.png"></p><h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p><img src="/2020/03/20/other/markdown/4.png" alt="4.png"></p><h4 id="自动打开预览页面，原生markdown需要手动打开"><a href="#自动打开预览页面，原生markdown需要手动打开" class="headerlink" title="自动打开预览页面，原生markdown需要手动打开"></a>自动打开预览页面，原生markdown需要手动打开</h4><p><img src="/2020/03/20/other/markdown/5.png" alt="5.png"></p><h4 id="生成目录"><a href="#生成目录" class="headerlink" title="生成目录"></a>生成目录</h4><p><img src="/2020/03/20/other/markdown/6.png" alt="6.png"></p><h4 id="导出pdf"><a href="#导出pdf" class="headerlink" title="导出pdf"></a>导出pdf</h4><p>Markdown to PDF<br><img src="/2020/03/20/other/markdown/8.png" alt="8.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> markdown </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>vim的使用</title>
+      <link href="/2020/03/20/other/vim/"/>
+      <url>/2020/03/20/other/vim/</url>
+      
+        <content type="html"><![CDATA[<p>Vim是从 vi 发展出来的一个文本编辑器。<br>vim 键盘图：<br><img src="/2020/03/20/other/vim/1.gif" alt="1.gif"></p><h3 id="vim-的使用"><a href="#vim-的使用" class="headerlink" title="vim 的使用"></a>vim 的使用</h3><p>基本上 vim 共分为三种模式，</p><ul><li>命令模式（Command mode）</li><li>输入模式（Insert mode）</li><li>底线命令模式（Last line mode）</li></ul><h4 id="命令模式："><a href="#命令模式：" class="headerlink" title="命令模式："></a>命令模式：</h4><p>用户刚刚启动 vi/vim，便进入了命令模式。<br>此状态下敲击键盘动作会被Vim识别为命令，而非输入字符。比如我们此时按下i，并不会输入一个字符，i被当作了一个命令。</p><p>以下是常用的几个命令：</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">i  切换到输入模式，以输入字符。</span><br><span class="line"><span class="keyword">x</span>  删除当前光标所在处的字符。</span><br><span class="line">:  切换到底线命令模式，以在最底一行输入命令。</span><br></pre></td></tr></table></figure><p>若想要编辑文本：启动Vim，进入了命令模式，按下i，切换到输入模式。<br>命令模式只有一些最基本的命令，因此仍要依靠底线命令模式输入更多命令。</p><h4 id="输入模式"><a href="#输入模式" class="headerlink" title="输入模式"></a>输入模式</h4><p>在命令模式下按下i就进入了输入模式。<br>在输入模式中，可以使用以下按键：</p><ul><li>字符按键以及Shift组合，输入字符</li><li>ENTER，回车键，换行</li><li>BACK SPACE，退格键，删除光标前一个字符</li><li>DEL，删除键，删除光标后一个字符</li><li>方向键，在文本中移动光标</li><li>HOME/END，移动光标到行首/行尾</li><li>Page Up/Page Down，上/下翻页</li><li>Insert，切换光标为输入/替换模式，光标将变成竖线/下划线</li><li>ESC，退出输入模式，切换到命令模式</li></ul><h4 id="底线命令模式"><a href="#底线命令模式" class="headerlink" title="底线命令模式"></a>底线命令模式</h4><p>在命令模式下按下:（英文冒号）就进入了底线命令模式。<br>底线命令模式可以输入单个或多个字符的命令，可用的命令非常多。<br>在底线命令模式中，基本的命令有:</p><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">:<span class="keyword">wq</span> 保存文件并退出<span class="keyword">vi</span></span><br><span class="line">:<span class="keyword">w</span> 保存文件但不退出<span class="keyword">vi</span></span><br><span class="line">:<span class="keyword">w</span> <span class="keyword">file</span> 将修改另外保存到<span class="keyword">file</span>中，不退出<span class="keyword">vi</span></span><br><span class="line">:q 不保存文件，退出<span class="keyword">vi</span></span><br></pre></td></tr></table></figure><p>按ESC键可随时退出底线命令模式。</p><h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>简单的说，我们可以将这三个模式想成底下的图标来表示：<br><img src="/2020/03/20/other/vim/2.png" alt="2.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> vim </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> vim </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>使用 nvm 管理不同版本的 node 与 npm</title>
+      <link href="/2020/03/20/other/nvm/"/>
+      <url>/2020/03/20/other/nvm/</url>
+      
+        <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>nvm 是 Mac 下的 node 管理工具。<br>由于node版本很多，各个版本的特性不太一样，有时需要安装多个node版本。</p><h3 id="一、卸载已安装到全局的-node-npm"><a href="#一、卸载已安装到全局的-node-npm" class="headerlink" title="一、卸载已安装到全局的 node/npm"></a>一、卸载已安装到全局的 node/npm</h3><p>如果之前是在官网下载的 node 安装包，运行后会自动安装在全局目录，其中node 命令在<code>/usr/local/bin/node</code>。<br>npm 命令在全局 node_modules 目录中，具体路径为<code>/usr/local/lib/node_modules/npm</code>。<br>安装 nvm 之后最好先删除下已安装的 node 和全局 node 模块。</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm ls -g --depth=0 <span class="comment">#查看已经安装在全局的模块，以便删除这些全局模块后再按照不同的 node 版本重新进行全局安装。</span></span><br></pre></td></tr></table></figure><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo rm -rf /usr/<span class="built_in">local</span>/lib/node_modules <span class="comment">#删除全局 node_modules 目录</span></span><br><span class="line">sudo rm /usr/<span class="built_in">local</span>/bin/node <span class="comment">#删除 node</span></span><br><span class="line"><span class="built_in">cd</span>  /usr/<span class="built_in">local</span>/bin &amp;&amp; ls -l | grep <span class="string">"../lib/node_modules/"</span> | awk <span class="string">'&#123;print $9&#125;'</span>| xargs rm <span class="comment">#删除全局 node 模块注册的软链</span></span><br></pre></td></tr></table></figure><h3 id="二、安装-nvm"><a href="#二、安装-nvm" class="headerlink" title="二、安装 nvm"></a>二、安装 nvm</h3><p>Mac 下通过 <code>brew install nvm</code> 所安装的nvm，由于安装路径不同，无法正确启用。<br>建议使用 brew uninstall nvm 卸载掉之后，通过本文的方案重新安装一次。</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.29.0/install.sh | bash</span><br></pre></td></tr></table></figure><p>安装完成后请重新打开终端环境，Mac 下推荐使用 oh-my-zsh 代替默认的 bash shell。</p><h3 id="三、安装切换各版本-node-npm"><a href="#三、安装切换各版本-node-npm" class="headerlink" title="三、安装切换各版本 node/npm"></a>三、安装切换各版本 node/npm</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install stable  <span class="comment">#安装最新稳定版 node，</span></span><br><span class="line">nvm install 4.2.2  <span class="comment">#安装 4.2.2 版本</span></span><br><span class="line">nvm install 0.12.7  <span class="comment">#安装 0.12.7 版本</span></span><br></pre></td></tr></table></figure><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm use 0  <span class="comment">#切换至 0.12.7 版本</span></span><br><span class="line">nvm use 4  <span class="comment">#切换至 4.2.2 版本</span></span><br><span class="line">nvm <span class="built_in">alias</span> default 0.12.7 <span class="comment">#设置默认 node 版本为 0.12.7</span></span><br></pre></td></tr></table></figure><h3 id="四、使用-nvmrc-文件配置项目所使用的-node-版本"><a href="#四、使用-nvmrc-文件配置项目所使用的-node-版本" class="headerlink" title="四、使用 .nvmrc 文件配置项目所使用的 node 版本"></a>四、使用 .nvmrc 文件配置项目所使用的 node 版本</h3><p>如果你的默认 node 版本（通过 nvm alias 命令设置的）与项目所需的版本不同，则可在项目根目录或其任意父级目录中创建 .nvmrc 文件，在文件中指定使用的 node 版本号，例如：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> &lt;项目根目录&gt;  <span class="comment">#进入项目根目录</span></span><br><span class="line"><span class="built_in">echo</span> 4 &gt; .nvmrc <span class="comment">#添加 .nvmrc 文件</span></span><br><span class="line">nvm use <span class="comment">#无需指定版本号，会自动使用 .nvmrc 文件中配置的版本</span></span><br><span class="line">node -v <span class="comment">#查看 node 是否切换为对应版本</span></span><br></pre></td></tr></table></figure><h3 id="五、nvm-与-n-的区别"><a href="#五、nvm-与-n-的区别" class="headerlink" title="五、nvm 与 n 的区别"></a>五、nvm 与 n 的区别</h3><ul><li>node版本管理工具还有一个是 n 命令，n 命令是作为一个 node 的模块而存在。</li><li>nvm是一个独立于 node/npm 的外部 shell 脚本，因此 n 命令相比 nvm 更加局限。</li></ul><p>由于npm安装的模块路径均为<code>/usr/local/lib/node_modules</code>，<strong><em>当使用n切换不同的node版本时，实际上会共用全局的node/npm目录</em></strong>。</p><p>因此不能很好的满足<strong><em>不同 node 版本使用不同全局 npm 模块</em></strong>的需求。所有node版本公用一个npm，在使用npm安装模块时，很容易出现各种问题。所以建议使用 nvm。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> nvm </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nvm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>forever概述及使用</title>
+      <link href="/2020/03/20/other/forever/"/>
+      <url>/2020/03/20/other/forever/</url>
+      
+        <content type="html"><![CDATA[<h3 id="何为forever"><a href="#何为forever" class="headerlink" title="何为forever"></a>何为forever</h3><p>forever可以看做是一个nodejs的守护进程，能够启动，停止，重启我们的app应用。</p><h3 id="forever用途"><a href="#forever用途" class="headerlink" title="forever用途"></a>forever用途</h3><p>forever的用途就是帮我们更好的管理我们node App服务，本质上就是在forever进程之下，创建一个node app的子进程。</p><h3 id="安装forever"><a href="#安装forever" class="headerlink" title="安装forever"></a>安装forever</h3><p>记得加-g，forever要求安装到全局环境下</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install forever -g</span><br></pre></td></tr></table></figure><h3 id="forever常用命令"><a href="#forever常用命令" class="headerlink" title="forever常用命令"></a>forever常用命令</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 简单的启动</span></span><br><span class="line">forever start app.js</span><br><span class="line"><span class="comment"># 2. 指定forever信息输出文件，当然，默认它会放到~/.forever/forever.log</span></span><br><span class="line">forever start -l forever.log app.js</span><br><span class="line"><span class="comment"># 3. 指定app.js中的日志信息和错误日志输出文件，-o 就是console.log输出的信息，-e 就是console.error输出的信息</span></span><br><span class="line">forever start -o out.log -e err.log app.js</span><br><span class="line"><span class="comment"># 4. 追加日志，forever默认是不能覆盖上次的启动日志，所以如果第二次启动不加-a，则会不让运行</span></span><br><span class="line">forever start -l forever.log -a app.js</span><br><span class="line"><span class="comment"># 5. 监听当前文件夹下的所有文件改动</span></span><br><span class="line">forever start -w app.js</span><br></pre></td></tr></table></figure><h3 id="文件改动监听并自动重启"><a href="#文件改动监听并自动重启" class="headerlink" title="文件改动监听并自动重启"></a>文件改动监听并自动重启</h3><p>监听当前文件夹下的所有文件改动（不太建议这样）</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever start -w app.js</span><br></pre></td></tr></table></figure><h3 id="显示所有运行的服务"><a href="#显示所有运行的服务" class="headerlink" title="显示所有运行的服务"></a>显示所有运行的服务</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever list</span><br></pre></td></tr></table></figure><h3 id="停止操作"><a href="#停止操作" class="headerlink" title="停止操作"></a>停止操作</h3><p> 停止所有运行的node App</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever stopall</span><br></pre></td></tr></table></figure><p>停止其中一个node App</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever stop app.js</span><br></pre></td></tr></table></figure><p>当然还可以这样，forever list 找到对应的id，然后：</p><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">forever stop [id]</span><br></pre></td></tr></table></figure><h3 id="重启操作"><a href="#重启操作" class="headerlink" title="重启操作"></a>重启操作</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 启动所有</span></span><br><span class="line">forever restartall</span><br><span class="line"><span class="comment"># 2. 启动其中一个</span></span><br><span class="line">forever restart [id]</span><br></pre></td></tr></table></figure><h3 id="开发和线上建议配置"><a href="#开发和线上建议配置" class="headerlink" title="开发和线上建议配置"></a>开发和线上建议配置</h3><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发环境下</span></span><br><span class="line">NODE_ENV=development forever start -l forever.log -e err.log -a app.js</span><br><span class="line"><span class="comment"># 线上环境下</span></span><br><span class="line">NODE_ENV=production forever start -l ~/.forever/forever.log -e ~/.forever/err.log -w -a app.js</span><br></pre></td></tr></table></figure><p>上面加上NODE_ENV为了让app.js辨认当前是什么环境用的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> forever </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> forever </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Performance — 前端性能监控利器</title>
+      <link href="/2020/03/19/other/Performance/"/>
+      <url>/2020/03/19/other/Performance/</url>
+      
+        <content type="html"><![CDATA[<h3 id><a href="#" class="headerlink" title></a></h3><p><strong><a href="https://www.cnblogs.com/wang-z-z/p/9485887.html" target="_blank" rel="noopener">网络原文</a></strong></p><p>首屏渲染时间获取 performance.now()</p><p>Performance是一个做前端性能监控离不开的API，最好在页面完全加载完成之后再使用，因为很多值必须在页面完全加载之后才能得到。<br>最简单的办法是在window.onload事件中读取各种数据。</p><p>目前主流浏览器虽然都已支持Performance对象，但是并不能支持它上面的全部属性和方法，<br>chrome浏览器都是兼容的，其他浏览器如下：<br>1.safari浏览器(包括mac和ios)只支持navigation,timing,now其余均不支持<br>2.微信浏览器支持timing,navigation属性，不支持performance.getEntries方法</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Performance </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Performance </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>window.print简单使用</title>
       <link href="/2020/03/19/other/window.print/"/>
       <url>/2020/03/19/other/window.print/</url>
