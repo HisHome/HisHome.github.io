@@ -11,15 +11,15 @@
   <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
   
   
-    <meta name="keywords" content="markdown," />
+    <meta name="keywords" content="阻止选中," />
   
 
   
-    <meta name="description" content="vsCode的markdown环境配置" />
+    <meta name="description" content="javascript判断机器是否联网的2种方法" />
   
   
   <link rel="icon" type="image/x-icon" href="/logo.png">
-  <title>vsCode的markdown环境配置 [ 小宽人的博客 ]</title>
+  <title>javascript判断机器是否联网的2种方法 [ 小宽人的博客 ]</title>
   
     <!-- stylesheets list from config.yml -->
     
@@ -76,11 +76,11 @@
   <article class="post" id="post">
     <header class="post-header text-center">
       <h1 class="title">
-        vsCode的markdown环境配置
+        javascript判断机器是否联网的2种方法
       </h1>
       <span>
         
-        <time class="time" datetime="2020-03-20T03:11:00.000Z">
+        <time class="time" datetime="2020-03-20T09:15:58.000Z">
         2020-03-20
       </time>
         
@@ -88,7 +88,7 @@
       <span class="slash">/</span>
       <span class="post-meta">
       <span class="post-tags">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/" rel="tag">markdown</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%98%BB%E6%AD%A2%E9%80%89%E4%B8%AD/" rel="tag">阻止选中</a></li></ul>
       </span>
     </span>
       <span class="slash">/</span>
@@ -96,20 +96,19 @@
       <span id="busuanzi_value_page_pv"></span> 点击
     </span>
       <span class="slash">/</span>
-      <span class="read">阅读耗时 1 分钟</span>
+      <span class="read">阅读耗时 2 分钟</span>
     </header>
 
     <div class="post-content" style="min-height: 300px;">
-      <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>因为经常使用markdown写日志，又加上使用vsCode开发。<br>vsCode + markdown完美结合。</p>
-<h3 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h3><p><img src="/2020/03/20/other/markdown/9.png" alt="9.png"></p>
-<h3 id="markdown常用插件"><a href="#markdown常用插件" class="headerlink" title="markdown常用插件"></a>markdown常用插件</h3><p>在插件商店输入markdown搜索</p>
-<h4 id="markdown-all-in-one"><a href="#markdown-all-in-one" class="headerlink" title="markdown all in one"></a>markdown all in one</h4><p><img src="/2020/03/20/other/markdown/1.png" alt="1.png"></p>
-<h4 id="将原生markdown预览的黑色背景改为白色"><a href="#将原生markdown预览的黑色背景改为白色" class="headerlink" title="将原生markdown预览的黑色背景改为白色"></a>将原生markdown预览的黑色背景改为白色</h4><p><img src="/2020/03/20/other/markdown/2.png" alt="2.png"></p>
-<h4 id="Github风格的预览"><a href="#Github风格的预览" class="headerlink" title="Github风格的预览"></a>Github风格的预览</h4><p><img src="/2020/03/20/other/markdown/3.png" alt="3.png"></p>
-<h4 id="快捷键"><a href="#快捷键" class="headerlink" title="快捷键"></a>快捷键</h4><p><img src="/2020/03/20/other/markdown/4.png" alt="4.png"></p>
-<h4 id="自动打开预览页面，原生markdown需要手动打开"><a href="#自动打开预览页面，原生markdown需要手动打开" class="headerlink" title="自动打开预览页面，原生markdown需要手动打开"></a>自动打开预览页面，原生markdown需要手动打开</h4><p><img src="/2020/03/20/other/markdown/5.png" alt="5.png"></p>
-<h4 id="生成目录"><a href="#生成目录" class="headerlink" title="生成目录"></a>生成目录</h4><p><img src="/2020/03/20/other/markdown/6.png" alt="6.png"></p>
-<h4 id="导出pdf"><a href="#导出pdf" class="headerlink" title="导出pdf"></a>导出pdf</h4><p>Markdown to PDF<br><img src="/2020/03/20/other/markdown/8.png" alt="8.png"></p>
+      <h2 id="javascript判断机器是否联网的2种方法"><a href="#javascript判断机器是否联网的2种方法" class="headerlink" title="javascript判断机器是否联网的2种方法"></a>javascript判断机器是否联网的2种方法</h2><h3 id="1-navigator-onLine"><a href="#1-navigator-onLine" class="headerlink" title="1. navigator.onLine"></a>1. navigator.onLine</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (navigator.onLine) &#123; </span><br><span class="line">    <span class="comment">//正常工作</span></span><br><span class="line">&#125; <span class="keyword">else</span> &#123; </span><br><span class="line">    <span class="comment">//执行离线状态时的任务</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个html5的 navigator的新特性可以很简单帮我们搞定。</p>
+<h3 id="2-online和offline"><a href="#2-online和offline" class="headerlink" title="2. online和offline"></a>2. online和offline</h3><p>当然，如果想支持的更兼容，可以使用如下2个事件：online和offline。当<br>网络从离线变为在线或者从在线变为离线时，分别触发这两个事件。 </p>
+<p>为了检测应用是否离线，在页面加载后，最好先通过navigator.onLine取得初始的状态。然后，就是通过上述两个事件来确定网络连接状态是否变化。</p>
+<p>当上述事件触发之后，navigator.onLine的值也会改变。 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> EventUtil = &#123; </span><br><span class="line">    addHandler: <span class="function"><span class="keyword">function</span> (<span class="params">element, type, handler</span>) </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (element.addEventListener) &#123; </span><br><span class="line">            element.addEventListener(type, handler, <span class="literal">false</span>); </span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (element.attachEvent) &#123; </span><br><span class="line">            element.attachEvent(<span class="string">"on"</span> + type, handler); </span><br><span class="line">        &#125; <span class="keyword">else</span> &#123; </span><br><span class="line">            element[<span class="string">"on"</span> + type] = handler; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;; </span><br><span class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"online"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    alert(<span class="string">"Online"</span>); </span><br><span class="line">&#125;); </span><br><span class="line">EventUtil.addHandler(<span class="built_in">window</span>, <span class="string">"offline"</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123; </span><br><span class="line">    alert(<span class="string">"Offline"</span>); </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+
 
     </div>
 
@@ -119,7 +118,7 @@
     
   <div id="toc" class="toc-article">
     <strong class="toc-title">目录</strong>
-    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#原因"><span class="toc-text">原因</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#效果截图"><span class="toc-text">效果截图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#markdown常用插件"><span class="toc-text">markdown常用插件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#markdown-all-in-one"><span class="toc-text">markdown all in one</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#将原生markdown预览的黑色背景改为白色"><span class="toc-text">将原生markdown预览的黑色背景改为白色</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Github风格的预览"><span class="toc-text">Github风格的预览</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#快捷键"><span class="toc-text">快捷键</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自动打开预览页面，原生markdown需要手动打开"><span class="toc-text">自动打开预览页面，原生markdown需要手动打开</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#生成目录"><span class="toc-text">生成目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#导出pdf"><span class="toc-text">导出pdf</span></a></li></ol></li></ol>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#javascript判断机器是否联网的2种方法"><span class="toc-text">javascript判断机器是否联网的2种方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-navigator-onLine"><span class="toc-text">1. navigator.onLine</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-online和offline"><span class="toc-text">2. online和offline</span></a></li></ol></li></ol>
   </div>
 
 
@@ -142,16 +141,16 @@
       <div class="post-nav-item post-nav-next">
         
           <span>〈 </span>
-          <a href="/2020/03/20/other/vim/" rel="next" title="vim的使用">
-          vim的使用
+          <a href="/2020/03/20/other/%E9%98%BB%E6%AD%A2%E5%86%85%E5%AE%B9%E8%A2%AB%E9%80%89%E4%B8%AD/" rel="next" title="阻止内容被选中">
+          阻止内容被选中
           </a>
         
       </div>
   
       <div class="post-nav-item post-nav-prev">
           
-          <a href="/2020/03/20/other/mailto_email/" rel="prev" title="mailto HTML email 链接">
-            mailto HTML email 链接
+          <a href="/2020/03/20/other/img_onload_onerror_onabout/" rel="prev" title="HTML img标签之onabort、onerror、onload事件与问题">
+            HTML img标签之onabort、onerror、onload事件与问题
           </a>
           <span>〉</span>
         
