@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>解决window.open被浏览器拦截的问题</title>
+      <link href="/2020/03/24/other/%E6%A8%A1%E6%8B%9F%E8%B7%B3%E8%BD%AC/"/>
+      <url>/2020/03/24/other/%E6%A8%A1%E6%8B%9F%E8%B7%B3%E8%BD%AC/</url>
+      
+        <content type="html"><![CDATA[<h3 id="模拟跳转"><a href="#模拟跳转" class="headerlink" title="模拟跳转"></a>模拟跳转</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">openurl</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//创建A标签</span></span><br><span class="line">  <span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">'a'</span>);</span><br><span class="line">  <span class="comment">//给创建好的a标签赋值</span></span><br><span class="line">  a.setAttribute(<span class="string">'href'</span>, url);</span><br><span class="line">  <span class="comment">//设置css 隐藏属性</span></span><br><span class="line">  a.setAttribute(<span class="string">'style'</span>, <span class="string">'display:none'</span>);  </span><br><span class="line">  <span class="comment">//设置 a标签为新窗口打开</span></span><br><span class="line">  a.setAttribute(<span class="string">'target'</span>, <span class="string">'_blank'</span>);  </span><br><span class="line">  <span class="comment">//将设置好的a标签，添加到 body 内</span></span><br><span class="line">  <span class="built_in">document</span>.body.appendChild(a);</span><br><span class="line">  <span class="comment">//模拟点击</span></span><br><span class="line">  a.click();</span><br><span class="line">  <span class="comment">//移除a标签</span></span><br><span class="line">  a.parentNode.removeChild(a);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 模拟跳转 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> window.open() </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTML img标签之onabort、onerror、onload事件与问题</title>
       <link href="/2020/03/20/other/img_onload_onerror_onabout/"/>
       <url>/2020/03/20/other/img_onload_onerror_onabout/</url>
@@ -684,7 +709,7 @@
       <link href="/2020/03/10/git/git/"/>
       <url>/2020/03/10/git/git/</url>
       
-        <content type="html"><![CDATA[<h3 id="Git-常用操作"><a href="#Git-常用操作" class="headerlink" title="Git 常用操作"></a>Git 常用操作</h3><h4 id="上传新项目到远程"><a href="#上传新项目到远程" class="headerlink" title="上传新项目到远程"></a>上传新项目到远程</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -am <span class="string">"first-commit"</span></span><br><span class="line">git remote add origin git@github.com:xxxx/xxx.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -D XXX   //强制删除本地分支</span><br><span class="line">git push origin  :XXXX   //删除远程分支 需要切换到其它分支</span><br></pre></td></tr></table></figure><h4 id="Git-pull-强制覆盖本地文件"><a href="#Git-pull-强制覆盖本地文件" class="headerlink" title="Git pull 强制覆盖本地文件"></a>Git pull 强制覆盖本地文件</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><h4 id="Git-强制push本地代码到远端"><a href="#Git-强制push本地代码到远端" class="headerlink" title="Git 强制push本地代码到远端"></a>Git 强制push本地代码到远端</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h3 id="Git-常用操作"><a href="#Git-常用操作" class="headerlink" title="Git 常用操作"></a>Git 常用操作</h3><h4 id="上传新项目到远程"><a href="#上传新项目到远程" class="headerlink" title="上传新项目到远程"></a>上传新项目到远程</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment"># …or create a new repository on the command line</span></span><br><span class="line">git init</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m <span class="string">"first commit"</span></span><br><span class="line">git remote add origin git@github.com:xxx/xxxx.git</span><br><span class="line">git push -u origin master</span><br><span class="line">                </span><br><span class="line"><span class="comment"># …or push an existing repository from the command line</span></span><br><span class="line">git remote add origin git@github.com:xxx/xxx.git</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure><h4 id="删除分支"><a href="#删除分支" class="headerlink" title="删除分支"></a>删除分支</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git branch -D XXX   //强制删除本地分支</span><br><span class="line">git push origin  :XXXX   //删除远程分支 需要切换到其它分支</span><br></pre></td></tr></table></figure><h4 id="Git-pull-强制覆盖本地文件"><a href="#Git-pull-强制覆盖本地文件" class="headerlink" title="Git pull 强制覆盖本地文件"></a>Git pull 强制覆盖本地文件</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all</span><br><span class="line">git reset --hard origin/master</span><br><span class="line">git pull</span><br></pre></td></tr></table></figure><h4 id="Git-强制push本地代码到远端"><a href="#Git-强制push本地代码到远端" class="headerlink" title="Git 强制push本地代码到远端"></a>Git 强制push本地代码到远端</h4><figure class="highlight zsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -f origin master</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
