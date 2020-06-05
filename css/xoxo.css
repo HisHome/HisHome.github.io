@@ -8,9 +8,6 @@
 *:after {
   box-sizing: border-box;
 }
-html, body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
 blockquote,
 body,
 fieldset,
@@ -134,10 +131,6 @@ footer .bottom-item:hover {
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1);
 }
-::-moz-selection {
-  background: #64B5F6;
-  color: #fff;
-}
 ::selection {
   background: #64B5F6;
   color: #fff;
@@ -182,7 +175,8 @@ footer .bottom-item:hover {
 html,
 body {
   font-size: 16px;
-  font-weight: 300;
+  font-weight: 400;
+  font-family: Georgia,serif;
 }
 body {
   color: #202020;
@@ -200,7 +194,7 @@ body {
 }
 .nav-container .home-menu {
   border-bottom-style: solid;
-  border-bottom-color: #e6e6e6;
+  border-bottom-color: #f6f6f6;
   border-bottom-width: 0.5px;
   height: 50px;
   padding: 5px 20px;
@@ -283,7 +277,6 @@ body {
 .nav-container .home-menu .pure-menu-list .pure-menu-link {
   padding: 4px 15px;
   color: inherit;
-  font-weight: 400;
 }
 .nav-container .home-menu .pure-menu-list .pure-menu-link:after {
   content: ' ';
@@ -868,7 +861,10 @@ body {
 pre,
 code {
   background-color: #f6f6f6;
-  font-family: "Source Code Pro", "courier new", "Input Mono", "PT Mono", Consolas, Monaco, Menlo, monospace;
+  font-family: Consolas, Monaco, Menlo, monospace;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
 }
 pre {
   padding: 10px;

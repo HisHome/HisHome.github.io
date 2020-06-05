@@ -104,11 +104,11 @@
 <p> <strong><em>UglifyJS目前只能压缩JS代码，且只支持到ES5语法，尚不支持ES6。</em></strong></p>
 <h3 id="2、安装"><a href="#2、安装" class="headerlink" title="2、安装"></a>2、安装</h3><p>UglifyJS基于Node.js开发，所以首先确保安装了Node.js环境。</p>
 <p>如果想以一个独立命令的方式运行，则使用以下命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uglify-js -g</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>uglify-<span class="keyword">js </span>-g</span><br></pre></td></tr></table></figure>
 <p>安装完成后，输入 uglifyjs -V 查看版本号，检测安装是否成功。<br>如果想作为一个模块通过代码调用，则使用以下命令安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install uglify-js --save-dev</span><br></pre></td></tr></table></figure>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>uglify-<span class="keyword">js </span>--save-dev</span><br></pre></td></tr></table></figure>
 <h3 id="3、用法"><a href="#3、用法" class="headerlink" title="3、用法"></a>3、用法</h3><p>UglifyJS的命令格式如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uglifyjs [input files] [options]</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uglifyjs [<span class="built_in">input</span> <span class="keyword">files</span>] [<span class="keyword">options</span>]</span><br></pre></td></tr></table></figure>
 
 <p>输入文件既可以是单个，也可以是多个，建议传参时先传文件，再传选项。UglifyJS会根据传入选项，把文件放在队列中依次解释。</p>
 <p>例如，有一个名为 copy.js的js代码文件如下。</p>
